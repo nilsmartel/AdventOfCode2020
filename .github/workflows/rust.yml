@@ -1,0 +1,13 @@
+name: Rust
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run an build
+      run: for proj in *; do; cd $proj && cargo build && cargo test && cd ..; done
