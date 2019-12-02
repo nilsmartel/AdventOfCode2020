@@ -9,7 +9,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Build all projects
       run: |
-        for p in *
+        for p in $(find . -type d)
         do
           cd $p
           cargo build --verbose
