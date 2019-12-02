@@ -3,6 +3,10 @@ fn main() {
 
     let mut code = get_codes();
 
+    // replace values to restore state
+    code[1] = 12;
+    code[2] = 2;
+
     loop {
         match code[i] {
             1 => {
@@ -18,7 +22,7 @@ fn main() {
         i += 4;
     }
 
-    println!("{:?}", code);
+    println!("{}", code[0]);
 }
 
 fn get_codes() -> Vec<usize> {
