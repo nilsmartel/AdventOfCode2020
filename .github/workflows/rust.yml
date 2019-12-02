@@ -9,9 +9,11 @@ jobs:
     - uses: actions/checkout@v1
     - name: Build all projects
       run: |
-        for p in $(find . -type d)
+        for d in *
         do
-          cd $p
-          cargo build --verbose
-          cd ..
+          if [ -d $d ]
+          then
+            cd $d
+            cargo build --verbose
+          fi
         done
