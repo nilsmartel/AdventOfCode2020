@@ -10,10 +10,12 @@ fn main() {
     loop {
         match code[i] {
             1 => {
-                code[i + 3] = code[i + 1] + code[i + 2];
+                let (a, b, pos) = (code[i + 1], code[i + 2], code[i + 3]);
+                code[pos] = code[a] + code[b];
             }
             2 => {
-                code[i + 3] = code[i + 1] * code[i + 2];
+                let (a, b, pos) = (code[i + 1], code[i + 2], code[i + 3]);
+                code[pos] = code[a] * code[b];
             }
             99 => break,
             x => eprintln!("Illegal opcode {}", x),
