@@ -3,7 +3,7 @@ name: Rust
 on: [push]
 
 jobs:
-  build:
+  "build and test":
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
@@ -15,5 +15,14 @@ jobs:
           then
             cd $d
             cargo build --verbose
+          fi
+        done
+      run: |
+        for d in *
+        do
+          if [ -d $d ]
+          then
+            cd $d
+            cargo test --verbose
           fi
         done
